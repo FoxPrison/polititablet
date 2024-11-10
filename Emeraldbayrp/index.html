@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigspolitiets Tablet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tablet-container">
+        <!-- Øverste bar med log ud knap -->
+        <div class="top-bar">
+            <span class="tablet-title">POLITI TABLET</span>
+            <!-- Log ud knap -->
+            <button class="logout-btn" onclick="logout()">Log ud</button>
+        </div>
+        
+        <div class="header">
+            <h1>POLITI</h1>
+            <h2>TABLET</h2>
+        </div>
+        
+        <!-- Login-formular -->
+        <div class="login-container" id="loginContainer">
+            <form id="loginForm">
+                <label for="pNumber">P-nummer:</label>
+                <input type="text" id="pNumber" name="pNumber" required>
+                
+                <label for="password">Adgangskode:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="button" onclick="login()">Log ind</button>
+            </form>
+            <p id="errorMessage" class="error"></p>
+        </div>
+        
+        <!-- Admin panel - kun synlig efter login -->
+        <div id="adminPanel" class="hidden">
+            <h3>Ansatte i Politiet</h3>
+            <div class="scrollable-list">
+                <ul id="employeeList">
+                    <!-- Dynamisk indhold -->
+                </ul>
+            </div>
+
+            <!-- Opret ansat - kun synlig for Rigspolitichef og Træner -->
+            <div id="createEmployeeForm" class="hidden">
+                <h3>Opret ny ansat</h3>
+                <form>
+                    <label for="newName">Navn:</label>
+                    <input type="text" id="newName" required>
+
+                    <label for="newPNumber">P-nummer:</label>
+                    <input type="text" id="newPNumber" required>
+
+                    <label for="newPassword">Adgangskode:</label>
+                    <input type="password" id="newPassword" required>
+
+                    <label for="newRank">Rang:</label>
+                    <select id="newRank">
+                        <option>Politibetjent</option>
+                        <option>Hundepatrulje</option>
+                        <option>Romeo</option>
+                        <option>Indsatsleder</option>
+                        <option>Kriminalbetjent</option>
+                        <option>Helikopter</option>
+                        <option>Kadet</option>
+                        <option>MC</option>
+                        <option>Civilbetjent</option>
+                        <option>Politiassistent 2. gard</option>
+                        <option>Politiassistent 1. gard</option>
+                        <option>Rigspoliti</option>
+                        <option>Stabschef</option>
+                        <option>Politikommissær</option>
+                        <option>Vicepolitindspektør</option>
+                        <option>Politi Indspektør</option>
+                        <option>Politimester</option>
+                        <option>Vicerigspolitichef</option>
+                        <option>Rigspolitichef</option>
+                    </select>
+
+                    <button type="button" onclick="createEmployee()">Opret ansat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
